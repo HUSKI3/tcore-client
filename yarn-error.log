@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/bin/node /usr/bin/yarn publish
+  /usr/bin/node /usr/bin/yarn add @types/tcore-client
 
 PATH: 
   /home/thepiguy/Android/Sdk/cmdline-tools/latest/bin:/home/thepiguy/flutter/flutter/bin:/home/thepiguy/dotnet:/home/thepiguy/.local/bin:/home/thepiguy/.yarn/bin:/usr/local/bin:/usr/bin:/usr/local/sbin:/opt/cuda/bin:/opt/cuda/nsight_compute:/opt/cuda/nsight_systems/bin:/home/thepiguy/.dotnet/tools:/var/lib/flatpak/exports/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl
@@ -14,17 +14,17 @@ Platform:
   linux x64
 
 Trace: 
-  Error: canceled
-      at Interface.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:137150:13)
-      at Interface.emit (node:events:527:28)
-      at [_ttyWrite] [as _ttyWrite] (node:internal/readline/interface:1123:18)
-      at ReadStream.onkeypress (node:internal/readline/interface:272:20)
-      at ReadStream.emit (node:events:527:28)
-      at emitKeys (node:internal/readline/utils:358:14)
-      at emitKeys.next (<anonymous>)
-      at ReadStream.onData (node:internal/readline/emitKeypressEvents:64:36)
-      at ReadStream.emit (node:events:527:28)
-      at addChunk (node:internal/streams/readable:324:12)
+  Error: https://registry.yarnpkg.com/@types%2ftcore-client: Not found
+      at params.callback [as _callback] (/usr/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at self.callback (/usr/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/usr/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1344:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
 
 npm manifest: 
   {
@@ -32,6 +32,22 @@ npm manifest:
     "type": "module",
     "author": "Kunal Dandekar",
     "license": "MIT",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/RocKing1001/tcore-client"
+    },
+    "bugs": {
+      "url": "https://github.com/RocKing1001/tcore-client/issues"
+    },
+    "keywords": [
+      "tcore",
+      "sdk",
+      "gms",
+      "android",
+      "web"
+    ],
+    "description": "A Web SDK to communicate with TCore for android",
+    "displayName": "TCore JS/TS SDK",
     "devDependencies": {
       "microbundle": "^0.15.0",
       "ts-node": "^10.8.1",
@@ -48,9 +64,13 @@ npm manifest:
     "scripts": {
       "build": "microbundle",
       "dev": "microbundle watch",
-      "test": "ts-node ./test/index.ts"
+      "test": "ts-node ./test/index.ts",
+      "prepublish": "echo \"🚀 Building the package\" && yarn microbundle && echo \"🪐 Build Complete\""
     },
-    "version": "0.0.0"
+    "version": "0.0.1-alpha1",
+    "files": ["dist"],
+    "dependencies": {
+    }
   }
 
 yarn manifest: 
@@ -3235,6 +3255,11 @@ Lockfile:
       csso "^4.2.0"
       picocolors "^1.0.0"
       stable "^0.1.8"
+  
+  tcore-client@^0.0.1-alpha1:
+    version "0.0.1-alpha1"
+    resolved "https://registry.yarnpkg.com/tcore-client/-/tcore-client-0.0.1-alpha1.tgz#0a572a15e8295823ec69577a5d2f944fcbafa7f4"
+    integrity sha512-fdpb0pDR93lv8wkLrl1ggNniM6JTKhnvOT41dWOAfgHLlGuest+7Yp++DlazoCSnDwTJUh/KZ4uFLO2MamwOcQ==
   
   terser@^5.0.0, terser@^5.7.0:
     version "5.14.1"

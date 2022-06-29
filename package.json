@@ -10,8 +10,15 @@
   "bugs": {
     "url": "https://github.com/RocKing1001/tcore-client/issues"
   },
-  "keywords": ["tcore", "sdk", "gms", "android", "web"],
+  "keywords": [
+    "tcore",
+    "sdk",
+    "gms",
+    "android",
+    "web"
+  ],
   "description": "A Web SDK to communicate with TCore for android",
+  "displayName": "TCore JS/TS SDK",
   "devDependencies": {
     "microbundle": "^0.15.0",
     "ts-node": "^10.8.1",
@@ -28,7 +35,14 @@
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "test": "ts-node ./test/index.ts"
+    "test": "ts-node ./test/index.ts",
+    "prepack": "echo 🚀 Building the files && yarn build && cp dist/tcore-client.* dist/index.d.ts ./ ",
+    "postpack": "echo 🧹 Cleaning up && rm tcore-client.* index.d.ts"
   },
-  "version": "0.0.1-alpha"
+  "version": "0.0.1-alpha10",
+  "files": [
+    "tcore-client.*",
+    "index.d.ts"
+  ],
+  "dependencies": {}
 }
