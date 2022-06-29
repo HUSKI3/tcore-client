@@ -2,6 +2,7 @@ node_modules/
 dist/
 .env
 .cache
+*.tgz
 
 # this is for local files for the dev enviornment
 .tcore-dev
