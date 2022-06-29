@@ -1,0 +1,25 @@
+{
+  "name": "tcore-client",
+  "type": "module",
+  "author": "Kunal Dandekar",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.15.0",
+    "ts-node": "^10.8.1",
+    "typescript": "^4.7.4"
+  },
+  "source": "src/index.ts",
+  "exports": {
+    "require": "./dist/tcore-client.cjs",
+    "default": "./dist/tcore-client.modern.js"
+  },
+  "main": "./dist/tcore-client.cjs",
+  "module": "./dist/tcore-client.esm.js",
+  "unpkg": "./dist/tcore-client.umd.js",
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch",
+    "test": "ts-node ./test/index.ts"
+  },
+  "version": "0.0.1-alpha"
+}
