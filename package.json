@@ -3,6 +3,15 @@
   "type": "module",
   "author": "Kunal Dandekar",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RocKing1001/tcore-client"
+  },
+  "bugs": {
+    "url": "https://github.com/RocKing1001/tcore-client/issues"
+  },
+  "keywords": ["tcore", "sdk", "gms", "android", "web"],
+  "description": "A Web SDK to communicate with TCore for android",
   "devDependencies": {
     "microbundle": "^0.15.0",
     "ts-node": "^10.8.1",
