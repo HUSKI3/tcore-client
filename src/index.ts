@@ -1,161 +1,61 @@
-/**
- * Connect to TCore using this function
- * @param {string?} endpoint - The API endpoint to connect to. Leaving empty will connect to the tcore endpoint on the local device OR the dev server
- * @return {boolean} A flag with the return status
- */
-export function connect(endpoint: string = "wip"): boolean {
-  // WIP
-  console.log("Hi Mom!");
-
-  return false;
+function log(...args: any[]) {
+  console.log("[LOGGER]", ...args);
 }
 
-// Extend functionality ;P
-let log: Function = function() {
-  return Function.prototype.bind.call(console.log, console, "[Logger]:");
-}();
+class Asgard {
+  modules: any[] = [];
 
-// Pronounced T-Curry
-class tcuri {
-head!:     string
-body!:     string
-tail!:     string
-args?:      Map<string, any>
-final?:    string
-
-constructor(data: Partial<tcuri>) {
-  Object.assign(this, data);
-  for (var _ of [
-          ["^(http|https):\/\/",this.head], 
-          [".*.",this.body], 
-          [".*.",this.tail]
-      ])
-      {
-        this._check_exp(_[0], _[1]);
-      }
-  this._init_cmps();
-}
-_init_cmps(){
-  let args = "";
-  if (this.args){
-    for (var arg of this.args){
-      log(arg);
-    }
-  }
-  this.final = `${this.head}${this.body}:${this.tail}`;
-}
-_check_exp(regexp: string, against: string){
-  let hr = new RegExp(regexp);
-  if (hr.test(against)) {
-    log(`✔ ${against} is valid`) 
-  } else {
-    throw Error(`✘ ${against} verification failed`)
-  }
-}
-}
-
-//let t = new tcuri({
-//  "head": "https://d",
-//  "body": "d",
-//  "tail": "d",
-//});
-
-interface Request {
-  hook:     string
-  args: {
-    action: string
-    func:   string
-    data:   string
+  updateModules(modules: any[]) {
+    this.modules = modules;
   }
 }
 
-interface AsgardContact {
-  req:    Request | null
-  params: Array<string> | null
-}
+class Client {
+  connected: boolean;
+  URI: string = "http://localhost:8080";
+  URIBackup: string = "0.0.0.0";
+  PortBackup: number = 8080;
+  asgard: Asgard;
 
-class TClient{
-  uri?: tcuri;
-  constructor(data: {"uri": tcuri}){
-    Object.assign(this, data);
-  };
-
-  send(r: Required<AsgardContact>) {
-    /**  Send cases
-      This let's us easily and quickly decide what sort
-      of request to send. This is determended by the 
-      @param {r.req} parameter. 
-      
-      r : AsgardContact -- This is an interface that 
-      holds all our request data. 
-    */
-    switch (r.req){
-      /** 
-       * Consider that the request is null.
-       * We will default to just the index 
-       * route of Asgard.
-      */
-      case null:
-        log("Request is empty. Returning index");
-        return do_request(this.uri?.final);
-    }
+  constructor() {
+    this.asgard = new Asgard();
+    this.connected = false;
   }
-}
 
-async function do_request(uri?: string, params?: Map<string, string>) {
-  if (!uri){
-    throw new Error(`[DoReq] URI is not valid?`)
+  public async InitRest() {
+    var data = await this.getModules();
+    var jsondata = await data.json();
+
+    this.asgard.updateModules(jsondata["data"]["data"]);
   }
-  try {
-    const response = await fetch(uri, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json',
-      },
-    });
 
-    if (!response.ok) {
-      throw new Error(`Error! status: ${response.status}`);
-    }
+  public async getModules(): Promise<Response> {
+    const res = await fetch(`${this.URI}/list_asgard`);
 
-    const result = await response.json();
+    if (res.status !== 200) throw `URI returned ${res.status}`;
 
-    console.log('Response:', JSON.stringify(result, null, 4));
+    return res;
+  }
 
-    return result;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.log('error message: ', error.message);
-      return error.message;
+  public async sendRequest(body: { [key: string]: string }) {
+    const res = await fetch(this.URI);
+
+    return res;
+  }
+
+  public async tryConnect() {
+    log(`Trying to connect to ${this.URI}`);
+
+    const res = await fetch(this.URI);
+
+    if (res.status === 200) {
+      return true;
     } else {
-      console.log('unexpected error: ', error);
-      return 'An unexpected error occurred';
+      return false;
     }
   }
 }
 
+// usage
 
-
-///////////////////////////
-
-let client = new TClient(
-  {
-    "uri": new tcuri({
-      "head": "http://",
-      "body": "localhost",
-      "tail": "27070",
-    })
-  }
-);
-
-// Let's try to request tcore information
-let info = () => {
-  let cr: AsgardContact = ({
-    req: null,
-    params: null
-  })
-  //log(cr)
-  client.send(cr)
-}
-
-info();
+const client = new Client();
