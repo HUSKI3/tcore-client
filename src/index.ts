@@ -10,7 +10,7 @@ class Asgard {
   }
 }
 
-class Client {
+export class Client {
   connected: boolean;
   URI: string = "http://localhost:8080";
   URIBackup: string = "0.0.0.0";
