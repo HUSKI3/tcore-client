@@ -29,12 +29,12 @@
   },
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/tcore.cjs",
-    "default": "./dist/tcore.modern.js"
+    "require": "./tcore.cjs",
+    "default": "./tcore.modern.js"
   },
-  "main": "./dist/tcore.cjs",
-  "module": "./dist/tcore.esm.js",
-  "unpkg": "./dist/tcore.umd.js",
+  "main": "./tcore.cjs",
+  "module": "./tcore.esm.js",
+  "unpkg": "./tcore.umd.js",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",

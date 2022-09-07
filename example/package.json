@@ -1,0 +1,14 @@
+{
+  "name": "tcore-js-example",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "author": "thepiguy",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "tcore.js": "^0.0.1-alpha3"
+  },
+  "scripts": {
+    "dev": "tsc && node dist/index.js"
+  }
+}
