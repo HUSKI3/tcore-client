@@ -29,23 +29,21 @@
   },
   "source": "src/index.ts",
   "exports": {
-    "require": "./tcore.cjs",
-    "default": "./tcore.modern.js"
+    "require": "./dist/tcore.cjs",
+    "default": "./dist/tcore.modern.js"
   },
-  "main": "./tcore.cjs",
-  "module": "./tcore.esm.js",
-  "unpkg": "./tcore.umd.js",
+  "main": "./dist/tcore.cjs",
+  "module": "./dist/tcore.esm.js",
+  "unpkg": "./dist/tcore.umd.js",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
-    "test": "yarn build > dist/log && jest",
-    "prepack": "echo 🚀 Building the files && yarn build && cp dist/tcore.* dist/index.d.ts ./ ",
-    "postpack": "echo 🧹 Cleaning up && rm tcore.* index.d.ts"
+    "test": "yarn build > dist/log && jest"
   },
   "version": "0.0.1-alpha5",
   "files": [
-    "tcore.*",
-    "index.d.ts",
+    "dist/tcore.*",
+    "dist/index.d.ts",
     "package.json"
   ]
 }
