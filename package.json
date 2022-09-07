@@ -42,7 +42,7 @@
     "prepack": "echo 🚀 Building the files && yarn build && cp dist/tcore.* dist/index.d.ts ./ ",
     "postpack": "echo 🧹 Cleaning up && rm tcore.* index.d.ts"
   },
-  "version": "0.0.1-alpha3",
+  "version": "0.0.1-aplha4",
   "files": [
     "tcore.*",
     "index.d.ts"
