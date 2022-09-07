@@ -3,6 +3,7 @@ dist/
 .env
 .cache
 *.tgz
+*.log
 
 # this is for local files for the dev enviornment
 .tcore-dev

@@ -1,5 +1,5 @@
 {
-  "name": "tcore-client",
+  "name": "tcore.js",
   "type": "module",
   "author": "Kunal Dandekar",
   "license": "MIT",
@@ -17,10 +17,11 @@
     "android",
     "web"
   ],
-  "description": "A Web SDK to communicate with TCore for android",
-  "displayName": "TCore JS/TS SDK",
+  "description": "A javascript library to communicate with Tcore",
+  "displayName": "TcoreLib JS",
   "devDependencies": {
     "@babel/preset-typescript": "^7.18.6",
+    "@types/jest": "^28.1.3",
     "jest": "^28.1.2",
     "microbundle": "^0.15.0",
     "ts-node": "^10.8.1",
@@ -28,25 +29,22 @@
   },
   "source": "src/index.ts",
   "exports": {
-    "require": "./dist/tcore-client.cjs",
-    "default": "./dist/tcore-client.modern.js"
+    "require": "./dist/tcore.cjs",
+    "default": "./dist/tcore.modern.js"
   },
-  "main": "./dist/tcore-client.cjs",
-  "module": "./dist/tcore-client.esm.js",
-  "unpkg": "./dist/tcore-client.umd.js",
+  "main": "./dist/tcore.cjs",
+  "module": "./dist/tcore.esm.js",
+  "unpkg": "./dist/tcore.umd.js",
   "scripts": {
-    "build": "rm -r ./dist && microbundle",
-    "dev": "rm -r ./dist && microbundle watch",
+    "build": "microbundle",
+    "dev": "microbundle watch",
     "test": "yarn build > dist/log && jest",
-    "prepack": "echo 🚀 Building the files && yarn build && cp dist/tcore-client.* dist/index.d.ts ./ ",
-    "postpack": "echo 🧹 Cleaning up && rm tcore-client.* index.d.ts"
+    "prepack": "echo 🚀 Building the files && yarn build && cp dist/tcore.* dist/index.d.ts ./ ",
+    "postpack": "echo 🧹 Cleaning up && rm tcore.* index.d.ts"
   },
-  "version": "0.0.1-alpha2",
+  "version": "0.0.1-alpha3",
   "files": [
-    "tcore-client.*",
+    "tcore.*",
     "index.d.ts"
-  ],
-  "dependencies": {
-    "@types/jest": "^28.1.3"
-  }
+  ]
 }

@@ -2,7 +2,7 @@ function log(...args: any[]) {
   console.log("[LOGGER]", ...args);
 }
 
-class Asgard {
+class Asgards {
   modules: any[] = [];
 
   updateModules(modules: any[]) {
@@ -15,10 +15,10 @@ export class Client {
   URI: string = "http://localhost:8080";
   URIBackup: string = "0.0.0.0";
   PortBackup: number = 8080;
-  asgard: Asgard;
+  asgard: Asgards;
 
   constructor() {
-    this.asgard = new Asgard();
+    this.asgard = new Asgards();
     this.connected = false;
   }
 
