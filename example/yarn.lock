@@ -54,9 +54,9 @@ socket.io-parser@~4.2.0:
     debug "~4.3.1"
 
 tcore.js@^0.0.1-alpha6:
-  version "0.0.1-alpha6"
-  resolved "https://registry.yarnpkg.com/tcore.js/-/tcore.js-0.0.1-alpha6.tgz#4834c6ee52b66d94bce2ecf4388a9fd19e2cd2c0"
-  integrity sha512-GRezsYDAdzwmrGrN/t+SKd+W6tlJrK6lcityDUb+pFvu/hWSbY4glJuWWeDMIQx5OYh98IjaQci1+GzSiHFcGw==
+  version "0.0.1-alpha7"
+  resolved "https://registry.yarnpkg.com/tcore.js/-/tcore.js-0.0.1-alpha7.tgz#8b848bda8a4361873ab1564f40c299f008a1dedb"
+  integrity sha512-iEJIVH/220QovxM0Pn0t3FJXBk14UfNgC0r2K5s/B5woEWZvv72yNpIXZNRyCGS78r0FggS+moKiEpW7DIShNQ==
   dependencies:
     socket.io-client "^4.5.2"
 
