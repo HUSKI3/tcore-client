@@ -13,7 +13,6 @@
   "keywords": [
     "tcore",
     "sdk",
-    "gms",
     "android",
     "web"
   ],
@@ -41,10 +40,13 @@
     "dev": "microbundle watch",
     "test": "yarn build > dist/log && jest"
   },
-  "version": "0.0.1-alpha5",
+  "version": "0.0.1-alpha6",
   "files": [
     "dist/tcore.*",
     "dist/index.d.ts",
     "package.json"
-  ]
+  ],
+  "dependencies": {
+    "socket.io-client": "^4.5.2"
+  }
 }
