@@ -22,9 +22,18 @@ export class Client {
     this.connected = false;
   }
 
+  public async connectStatus() {
+    const res = await fetch(this.URI);
+    this.connected = res.status === 200 ? true : false;
+
+    return this.connected;
+  }
+
   public async InitRest() {
     var data = await this.getModules();
     var jsondata = await data.json();
+    
+    await this.connectStatus()
 
     this.asgard.updateModules(jsondata["data"]["data"]);
   }

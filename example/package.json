@@ -6,7 +6,7 @@
   "license": "MIT",
   "type": "module",
   "dependencies": {
-    "tcore.js": "^0.0.1-alpha3"
+    "tcore.js": "latest"
   },
   "scripts": {
     "dev": "tsc && node dist/index.js"

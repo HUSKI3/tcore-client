@@ -1,6 +1,13 @@
-// TODO
-import { Client } from "../src";
+import {Client} from '../src/index'
 
-const client = new Client()
+const client = new Client();
 
-await client.InitRest()
+
+test("Is the API up?", async () => {
+  await client.InitRest()
+  expect((await fetch(client.URI)).status === 200).toBe(true);
+});
+
+test("connected attribute", () => {
+  expect(client.connected).toBe(true);
+});

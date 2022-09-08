@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-tcore.js@^0.0.1-alpha3:
+tcore.js@latest:
   version "0.0.1-alpha5"
   resolved "https://registry.yarnpkg.com/tcore.js/-/tcore.js-0.0.1-alpha5.tgz#f58a7121bbad0d231d8d65ae0e63fc75f00d35e6"
   integrity sha512-XOi4bRhibUZAQaHgxZvrLDwEUryM6G+hl4NFQB9X2JTLXS2W2sT2zn9Tq2uAXmLKVNN18/UCwNv5dB892sivmw==
