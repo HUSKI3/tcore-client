@@ -1,7 +1,10 @@
-import {Client} from "tcore.js"
+import { Client } from "tcore.js";
 
-const client =  new Client()
+const client = new Client();
 
-await client.InitRest()
+await client.InitRest();
 
-console.log(client.asgard.modules)
+console.log(client.asgard.modules);
+
+// websocket logs
+(async () => client.wsLogs())();
