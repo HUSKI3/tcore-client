@@ -41,7 +41,7 @@
     "dev": "microbundle watch",
     "test": "yarn build > dist/log && jest"
   },
-  "version": "0.0.1-alpha6",
+  "version": "0.0.1-alpha7",
   "files": [
     "dist/tcore.*",
     "dist/index.d.ts",
