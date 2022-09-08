@@ -1,5 +1,11 @@
+import { io, Socket } from "socket.io-client";
+
 function log(...args: any[]) {
   console.log("[LOGGER]", ...args);
+}
+
+function logErr(...args: any[]) {
+  console.log("[ERROR]", ...args);
 }
 
 class Asgards {
@@ -16,6 +22,7 @@ export class Client {
   URIBackup: string = "0.0.0.0";
   PortBackup: number = 8080;
   asgard: Asgards;
+  socket: Socket;
 
   constructor() {
     this.asgard = new Asgards();
@@ -29,11 +36,25 @@ export class Client {
     return this.connected;
   }
 
+  public wsLogs() {
+    this.socket = io(this.URI);
+    const socket = this.socket;
+
+    this.socket.on("connect", () => {
+      log("connected");
+      this.connected = true;
+    });
+
+    socket.on("connect_failed", logErr);
+    socket.on("connect_error", logErr);
+    socket.on("system", log);
+  }
+
   public async InitRest() {
     var data = await this.getModules();
     var jsondata = await data.json();
-    
-    await this.connectStatus()
+
+    await this.connectStatus();
 
     this.asgard.updateModules(jsondata["data"]["data"]);
   }
@@ -64,7 +85,3 @@ export class Client {
     }
   }
 }
-
-// usage
-
-const client = new Client();

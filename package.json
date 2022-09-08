@@ -35,6 +35,7 @@
   "main": "./dist/tcore.cjs",
   "module": "./dist/tcore.esm.js",
   "unpkg": "./dist/tcore.umd.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "microbundle",
     "dev": "microbundle watch",
